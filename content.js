@@ -1,0 +1,1 @@
+window.location = 'https://modrinth.com/checklist'

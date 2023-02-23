@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Modrinth Mod Lister",
+    "description": "Make mod hoarding easier.",
+    "version": "1.2.0",
+    "action": {
+        "default_icon": "icon.png"
+    }, 
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "permissions": [
+        "storage", "activeTab", "scripting"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "main.js"
+            ],
+            "matches": [
+                "https://modrinth.com/*"
+            ]
+        }
+    ]
+}
