@@ -22,6 +22,7 @@ function waitForElm(selector) {
 
 console.log(URL)
 if (URL.startsWith("https://modrinth.com/checklist")) {
+    document.querySelector("title").innerHTML = "Mod Checklist | Modrinth"
     console.log("in url")
     main = document.querySelector("main")
     waitForElm('a[href="https://discord.gg/EUHuJHt"]').then((elm) => {
@@ -33,6 +34,24 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
     waitForElm('a.iconified-button.raised-button.brand-button.nuxt-link-active[href="/"]').then((elm) => {
         elm.remove()
     })
+
+    const version_box = document.createElement("input")
+    version_box.type = "text"
+    version_box.classList.add("iconified-button")
+    version_box.classList.add("raised-button")
+    version_box.classList.add("brand-button")
+    version_box.classList.add("nuxt-link-active")
+    version_box.value = "1.19.2"
+    version_box.style.marginLeft = "39%"
+
+    const loader_box = document.createElement("input")
+    loader_box.type = "text"
+    loader_box.classList.add("iconified-button")
+    loader_box.classList.add("raised-button")
+    loader_box.classList.add("brand-button")
+    loader_box.classList.add("nuxt-link-active")
+    loader_box.value = "Fabric"
+    loader_box.style.marginLeft = "39%"
 
     const download_button = document.createElement("button")
     download_button.classList.add("iconified-button")
@@ -46,7 +65,8 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
         console.log(res)
         for (let i = 0;i < res.length;i++) {
             modid = res[i][0]
-            window.open(`https://modrinth.com/mod/${modid}/versions`, '_blank')
+            // make it actually auto download, CLASS download-button
+            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value}`, '_blank')
         }
         localStorage.setItem("mods-checklist-m", []) 
     })
@@ -71,6 +91,8 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
     }
     download_list.innerHTML = final
 
+    main.appendChild(version_box)
+    main.appendChild(loader_box)
     main.appendChild(download_button)
     main.appendChild(download_list)
 }
