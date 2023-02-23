@@ -66,7 +66,7 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
         for (let i = 0;i < res.length;i++) {
             modid = res[i]
             // make it actually auto download, CLASS download-button
-            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value}`, '_blank')
+            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value.toLowerCase()}`, '_blank')
         }
         localStorage.setItem("mods-checklist-m", []) 
     })
@@ -105,7 +105,7 @@ document.addEventListener("mousemove", function(){
             for (let i = 0;i < cards.length;i++) {
                 if (!cards[i].querySelector(".nuxt-link-active")) {
                     const checklist_add = document.createElement("button")
-                    const nameofcard = cards[i].querySelector('h2[class="name"]').parentNode.href.replaceAll("https://modrinth.com/mod/","")
+                    const nameofcard = cards[i].querySelector('h2[class="name"]').parentNode.href.replaceAll("https://modrinth.com/mod/","").replaceAll("https://modrinth.com/plugin/","").replaceAll("https://modrinth.com/datapack/","")
                     if (localStorage.getItem("mods-checklist-m").indexOf(nameofcard) > -1) {
                         checklist_add.classList.add("brand-button")
                     }
