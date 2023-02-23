@@ -64,7 +64,7 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
         res = localStorage.getItem("mods-checklist-m").split(",")
         console.log(res)
         for (let i = 0;i < res.length;i++) {
-            modid = res[i][0]
+            modid = res[i]
             // make it actually auto download, CLASS download-button
             window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value}`, '_blank')
         }
