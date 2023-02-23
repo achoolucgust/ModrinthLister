@@ -53,6 +53,23 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
     loader_box.value = "Fabric"
     loader_box.style.marginLeft = "39%"
 
+
+    const autodownload_check = document.createElement("button")
+    autodownload_check.innerHTML = "Auto-download first version"
+    autodownload_check.classList.add("iconified-button")
+    autodownload_check.classList.add("raised-button")
+    autodownload_check.classList.add("nuxt-link-active")
+    last = ""
+    autodownload_check.addEventListener("click", function() {
+        autodownload_check.classList.toggle("brand-button")
+        if (autodownload_check.classList.contains("brand-button")) {
+            last = "&checklist=download"
+        } else {
+            last = ""
+        }
+    })
+    autodownload_check.style.marginLeft = "39%"
+
     const download_button = document.createElement("button")
     download_button.classList.add("iconified-button")
     download_button.classList.add("raised-button")
@@ -65,7 +82,7 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
         console.log(res)
         for (let i = 0;i < res.length;i++) {
             modid = res[i]
-            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value.toLowerCase()}&checklist=download`, '_blank')
+            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value.toLowerCase()}${last}`, '_blank')
         }
         localStorage.setItem("mods-checklist-m", []) 
     })
@@ -92,6 +109,7 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
 
     main.appendChild(version_box)
     main.appendChild(loader_box)
+    main.appendChild(autodownload_check)
     main.appendChild(download_button)
     main.appendChild(download_list)
 }
