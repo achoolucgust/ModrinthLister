@@ -65,8 +65,7 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
         console.log(res)
         for (let i = 0;i < res.length;i++) {
             modid = res[i]
-            // make it actually auto download, CLASS download-button
-            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value.toLowerCase()}`, '_blank')
+            window.open(`https://modrinth.com/mod/${modid}/versions?g=${version_box.value}&l=${loader_box.value.toLowerCase()}&checklist=download`, '_blank')
         }
         localStorage.setItem("mods-checklist-m", []) 
     })
@@ -95,6 +94,13 @@ if (URL.startsWith("https://modrinth.com/checklist")) {
     main.appendChild(loader_box)
     main.appendChild(download_button)
     main.appendChild(download_list)
+}
+if (URL.includes("checklist=download")) {
+    download = document.querySelector(".download-button")
+    window.location = download.href
+    document.addEventListener("mousemove", function(){
+        window.close()   
+    })
 }
 
 document.addEventListener("mousemove", function(){
