@@ -1,4 +1,5 @@
 URL = document.URL
+localStorage.setItem("mods-checklist-m","") 
 
 function waitForElm(selector) {
     return new Promise(resolve => {
