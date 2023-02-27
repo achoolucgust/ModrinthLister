@@ -1,6 +1,6 @@
 # Modrinth Mod Checklist
  
-Just drag and drop one of the [releases](https://github.com/achoolucgust/ModrinthLister/releases/latest) to your browser, and enable the extension.
+Just drag and drop one of the [releases](https://github.com/achoolucgust/ModrinthLister/releases/latest) to your browser, and enable/install the extension.
 
 Click on the icon to open the checklist.
 
@@ -8,4 +8,4 @@ You can click ![the checklist button](https://user-images.githubusercontent.com/
 
 ![checklist view](https://user-images.githubusercontent.com/76622722/221495364-02fe9b23-4e50-4192-89b5-4ce8c7d15163.png)
 
-## [click to install](https://github.com/achoolucgust/ModrinthLister/releases/latest)
+### [Click to install](https://github.com/achoolucgust/ModrinthLister/releases/latest)
