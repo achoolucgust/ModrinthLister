@@ -19,7 +19,10 @@ versionAlert.classList.add("brand-button")
 
 document.querySelector(".layout").appendChild(versionAlert)
 log("Checking version...")
-fetch('https://raw.githubusercontent.com/achoolucgust/ModrinthLister/main/version.txt').then(response => {
+fetch('https://raw.githubusercontent.com/achoolucgust/ModrinthLister/main/version.txt', {
+    headers: {
+       'Accept': 'application/text'
+    }}).then(response => {
     response.text().then(latest => {
         log(version)
         log(latest)
